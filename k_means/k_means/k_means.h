@@ -37,6 +37,7 @@ public:
 	Kmeans(size_t k, std::istream &is);
 	void kmeans();
 	void print_result();
+	std::vector<std::vector<Vector>> get_result();
 	~Kmeans() { ; }
 private:
 	size_t _k;

@@ -31,7 +31,8 @@ void testKmeans()
 	ifstream in("test.txt");
 	Kmeans test(4, in);
 	test.kmeans();
-	test.print_result();
+	test.get_result();
+	//test.print_result();
 }
 
 int main(int argc,char **argv)

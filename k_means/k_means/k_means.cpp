@@ -164,6 +164,7 @@ void Kmeans::kmeans()
 		_assign();
 		_update_center();
 		element_type e = _criterion_funcion();
+		std::cout << "iteration is "<<it<<" square error = " << e << std::endl;
 		if (e >= _criterion||it>10000)
 			break;
 		_criterion = e;
@@ -178,4 +179,23 @@ void Kmeans::print_result()
 		int index = _data[i].second;
 		std::cout << _data[i].first << "'s center is " << _center[index] << std::endl;
 	}
+}
+
+std::vector<std::vector<Vector>> Kmeans::get_result()
+{
+	std::vector<std::vector<Vector>>ret(_k);
+	for (size_t i = 0; i < _data.size(); ++i)
+	{
+		int index = _data[i].second;
+		ret[index].push_back(_data[i].first);
+	}
+	for (size_t i = 0; i < _k; ++i)
+	{
+		std::cout << "the " << i << " cluster is " << std::endl;
+		for (size_t j = 0; j < ret[i].size(); ++j)
+		{
+			std::cout << ret[i][j] << std::endl;
+		}
+	}
+	return ret;
 }
